@@ -7,6 +7,14 @@ const router = express.Router()
 const Book = require('../models/book')
 const Author = require('../models/author')
 const uploadPath=path.join('public',Book.coverImageBasePath)
+var cloudinary=require('cloudinary').v2
+
+cloudinary.config({
+    cloud_name: 'dz9xduywu',
+    api_key: '697598252786474',
+    api_secret: 'Bfl5BKqFrennMpf0oTbgbvo0mDQ'
+})
+
 const imageMimeTypes=['image/jpeg','image/png','images/gif']
 const upload=multer({
     dest: uploadPath,
@@ -41,7 +49,16 @@ router.get('/new',async (req,res)=>{
 
 // creating book
 router.post('/',upload.single('cover'),async(req,res)=>{
-    const fileName = req.file!=null? req.file.filename:null
+    
+    
+    var fileName = req.file!=null? req.file.filename:null
+    cloudinary.uploader.upload(uploadPath+'/'+req.file.filename,{
+        use_filename:true,
+        unique_filename: false
+    }, function(result){
+        console.log(result)
+
+    })
     const book = new Book({
         title: req.body.title,
         author: req.body.author,
