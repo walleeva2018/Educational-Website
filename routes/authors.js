@@ -2,6 +2,7 @@ const express = require('express')
 const author = require('../models/author')
 const router = express.Router()
 const Author = require('../models/author')
+const Book =require('../models/book')
 
 // All author route
 router.get('/',async(req,res)=>{
@@ -12,22 +13,42 @@ router.get('/',async(req,res)=>{
        searchOption.name=new RegExp(req.query.name,'i')
     }
 
+    let query=Book.find()
+    const books= await query.exec()
+    
+
 
     try{
          const authors= await Author.find(searchOption)
          res.render('authors/index',{
              authors :authors,
-            searchOption: req.query
+            searchOption: req.query,
+            booked: books
         })
     }catch{
         res.redirect('/')
     }
 })
 
-// New author route
-router.get('/new',(req,res)=>{
-    res.render('authors/new',{author : new Author() })
-})
+router.get('/:id',async(req,res)=>{
+    
+
+    let query = Book.find()
+    if(req.params.id!= null && req.params.id != ''){
+        query=query.regex('author',new RegExp(req.params.id,'i'))
+    }
+    try{
+        const books= await query.exec()
+        res.render('authors/searchcat',{
+            meh: books
+         })
+       }catch{
+           res.redirect('/')
+       }
+    
+ })
+
+
 
 // creating author
 router.post('/',async(req,res)=>{

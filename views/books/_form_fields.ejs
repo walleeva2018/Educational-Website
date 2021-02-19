@@ -7,9 +7,9 @@
 <select name="author">
     <% authors.forEach(author => {%>
         <% if(author.id === book.author){ %>
-            <option selected label = "<%= author.name %>" value="<%= author.id %>"></option>
+            <option selected label = "<%= author.name %>" value="<%= author.name %>"></option>
                 <% } else { %>  
-            <option label = "<%= author.name %>" value="<%= author.id %>"></option>
+            <option label = "<%= author.name %>" value="<%= author.name %>"></option>
         <% } %> 
     <% })  %> 
 </select>
@@ -23,6 +23,13 @@
         <textarea  name="description"><%= book.description %></textarea>
 </div>
 <div>
-    <label>Language</label>
-    <input type="text" name="language" value="which language">
+    <label>Link</label>
+    <input type="text" name="link" value="Enter a link">
 </div>
+<label >Language</label>
+
+<select name="language">
+  <option value="english">English</option>
+  <option value="bangla">Bangla</option>
+  <option value="Hindi">Hindi</option>
+</select>

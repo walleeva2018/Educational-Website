@@ -1,0 +1,6 @@
+<div>
+    <% meh.forEach(meh => { %>
+        <img height="150" width="100" src="https://res.cloudinary.com/dz9xduywu/image/upload/<%= meh.coverImageName  %>.png">
+        <a href="/books/<%= meh._id %>"><%= meh.title  %> </a>
+    <%  }) %>
+</div>

@@ -8,5 +8,15 @@
 <br>
 
 <% authors.forEach(author => { %>
-    <div><%= author.name %></div>
+    <% var d=0 %>
+    <% booked.forEach(book => { %> 
+
+        <% if(author.name==book.author) {%>
+            <% d++  %>   
+        <% } %>  
+        <%  }) %>
+    <a href="/authors/<%= author.name %>"><%= author.name  %> </a>
+    <p>(<%= d %>)</p>
 <%  }) %>
+
+ 

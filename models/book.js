@@ -12,6 +12,10 @@ const bookSchema = new mongoose.Schema({
     description:{
         type: String
     },
+    link:{
+       type: String,
+       required: true
+    },
     language:{
         type: String,
         required:true
@@ -21,9 +25,8 @@ const bookSchema = new mongoose.Schema({
         required:true
     },
     author :{
-        type: mongoose.Schema.Types.ObjectId,
+        type: String,
         required:true,
-        ref: 'Author'
     }
 })
 

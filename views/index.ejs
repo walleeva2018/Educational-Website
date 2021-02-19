@@ -3,6 +3,7 @@
 </h2>
 <div>
     <% books.forEach(book => { %>
-        <img height="150" width="100" src="<%= book.coverImagePath %> ">
+        <img height="150" width="100" src="https://res.cloudinary.com/dz9xduywu/image/upload/<%= book.coverImageName  %>.png">
+        <a href="/books/<%= book._id %>"><%= book.title  %> </a>
     <%  }) %>
     </div>
