@@ -1,3 +1,10 @@
 <h2>
-   <%= showreq[0].reqname %>
+   <% showreq.forEach(ss => { %>
+       
+     <p> <%= ss.reqname  %> </p>
+     <br>
+     <p> <%= ss.appeal %> </p>
+
+      <%  }) %>
+
 </h2>

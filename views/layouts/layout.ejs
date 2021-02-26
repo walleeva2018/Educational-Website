@@ -6,6 +6,7 @@
 
     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
   <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script defer src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
   <script defer src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
   <script defer src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
@@ -15,9 +16,17 @@
 
     <title>GYANARJAN</title>
     <style>
-      body {background-color: #001014; font-family:Verdana, Geneva, Tahoma, sans-serif;}
-      a {color: #C0C0C0;text-decoration: none;}
-      a+a {margin-left: 10px;}
+           html{
+     background: url("https://res.cloudinary.com/dz9xduywu/image/upload/v1614334382/background/backgroud_hifmfr.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+     }
+      body {
+       font-family:Verdana, Geneva, Tahoma, sans-serif;}
+      a {color: #C0C0C0; text-decoration: wavy;}
+      a+a {margin-left: 20px;}
       p {color: #c0c0c0;}
       title {color: #C0C0C0;}
       label {color: #C0C0C0;}
@@ -34,12 +43,53 @@
     font-weight: bold;
     font-size: 9pt;
     outline: none;}
+    div.card{
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      border-radius: 5px; /* 5px rounded corners */
+      display: flex;
+    }
+    div.card:hover {
+ background-color: #007575;
+}
+div.container {
+  padding: 2px 16px;
+}
+img {
+  border-radius: 5px 5px 0 0;
+}
+    ul {
+      background-color: #007575;
+      height: 30px;
+    }
+  footer  {
+   position:relative;
+   bottom:0;
+   width:100%;
+   height:60px;   /* Height of the footer */
+   background: #007575;
+}
+a.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+a.fa:hover {
+  opacity: 0.7;
+}
+a.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
       </style>
 </head>
 <body>
     <%- include('../partials/header.ejs') %>  
     <%- include('../partials/errorMessage.ejs') %>  
     <%- body %>
-
+    <%- include('../partials/footer.ejs') %>  
 </body>
 </html>

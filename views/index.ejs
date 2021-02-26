@@ -1,9 +1,16 @@
 <h2>
     Recently Added 
 </h2>
-<div>
+
     <% books.forEach(book => { %>
+        <div class="card">
         <img height="150" width="100" src="https://res.cloudinary.com/dz9xduywu/image/upload/<%= book.coverImageName  %>.png">
-        <a href="/books/<%= book._id %>"><%= book.title  %> </a>
-    <%  }) %>
+        <div class="container">
+            <p><%= book.title %> </p>
+            <br>
+            <p><%= book.author  %> </p>
+            <br>
+        <a href="/books/<%= book._id %>"><button>SHOW</button> </a>
+        </div>
     </div>
+    <%  }) %>
