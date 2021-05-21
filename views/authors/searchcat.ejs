@@ -1,6 +1,16 @@
 <div>
     <% meh.forEach(meh => { %>
-        <img height="150" width="100" src="https://res.cloudinary.com/dz9xduywu/image/upload/<%= meh.coverImageName  %>.png">
-        <a href="/books/<%= meh._id %>"><%= meh.title  %> </a>
+        <div class="card">
+            <img height="180" width="200" src="https://res.cloudinary.com/dz9xduywu/image/upload/<%= meh.coverImageName  %>.png">
+            <div class="container">
+             <p> <%= meh.title %></p>
+             <br>
+             <br>
+             <p> <%= meh.author %> </p> 
+             <br>
+            <a href="/books/<%= meh._id %>"><button>SHOW</button> </a>
+            <hr/>
+          </div>
+          </div>
     <%  }) %>
 </div>
